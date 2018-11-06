@@ -1,0 +1,4 @@
+AuthName "Acces reserve a l'admin"
+AuthType Basic
+AuthUserFile "/Applications/MAMP/htdocs/Projet4-OCR/View/Backend/.htpasswd"
+Require valid-user
