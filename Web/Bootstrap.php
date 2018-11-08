@@ -1,13 +1,14 @@
 <?php
-require __DIR__.'/../lib/MyFram/SplClassLoader.php';
+require __DIR__.'/../MyFram/SplClassLoader.php';
 
-$MyFramLoader = new SplClassLoader('MyFram', __DIR__.'/../lib');
+$MyFramLoader = new SplClassLoader('MyFram', __DIR__.'/../');
 $MyFramLoader->register();
 
-$modelLoader = new SplClassLoader('Model', __DIR__.'/../lib/vendors');
+$modelLoader = new SplClassLoader('Model', __DIR__.'/../Vendors');
 $modelLoader->register();
 
-$entityLoader = new SplClassLoader('Entity', __DIR__.'/../lib/vendors');
+$entityLoader = new SplClassLoader('Entity', __DIR__.'/../Vendors');
 $entityLoader->register();
+
 
 

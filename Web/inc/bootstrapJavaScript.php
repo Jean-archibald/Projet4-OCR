@@ -1,4 +1,4 @@
-     <script src="Web/vendor/jquery/jquery.min.js"></script>
+    <script src="Web/vendor/jquery/jquery.min.js"></script>
     <script src="Web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Plugin JavaScript -->
     <script src="Web/vendor/jquery-easing/jquery.easing.min.js"></script>

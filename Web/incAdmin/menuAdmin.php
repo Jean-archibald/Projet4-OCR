@@ -15,10 +15,7 @@
               <a class="nav-link js-scroll-trigger" href="#presentation">Modifier</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="Controller/Frontend/listChapters.php">Supprimer</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="Controller/Frontend/listChapters.php"></a>
+              <a class="nav-link js-scroll-trigger" href="#supprimer">Corbeille</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#connexion">Deconnexion</a>

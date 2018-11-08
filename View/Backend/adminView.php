@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-    <?= $title?>
+      <?= $title?>
     </title>
     <!-- Bootstrap core CSS -->
     <link href="../../Web/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,12 @@
   <body id="page-top">
     <!-- Navigation -->
     <?php
-    include('../../Web/inc/menuNav.php');
+    include('../../Web/incAdmin/menuAdmin.php');
+    ?>
+
+    <!-- Header -->
+    <?php
+    include('../../Web/incAdmin/headerAdmin.php');
     ?>
 
 
