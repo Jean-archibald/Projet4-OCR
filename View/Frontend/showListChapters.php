@@ -5,18 +5,14 @@
     ?>
 
   <body id="page-top">
+
     <!-- Navigation -->
     <?php
     include('Web/inc/menuNav.php');
     ?>
 
-    <!-- Header -->
-    <?php
-    include('Web/inc/header.php');
-    ?>
-
     <?= $contentTemplate ?>
-
+    
     <!-- Contact Section -->
     <?php
     include('Web/inc/contact.php');

@@ -9,22 +9,22 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#accueil">Accueil</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#presentation">Présentation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="Controller/Frontend/listChapters.php">Chapitres</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/chapitres">Chapitres</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#connexion">Connexion</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/apropos">À propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#recherche">Recherche</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/connexion">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#recherche"><i class="fas fa-search"></i></a>
             </li>
           </ul>
         </div>

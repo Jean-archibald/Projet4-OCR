@@ -10,11 +10,7 @@
     include('Web/inc/menuNav.php');
     ?>
 
-    <!-- Header -->
-    <?php
-    include('Web/inc/header.php');
-    ?>
-
+    
     <?= $contentTemplate ?>
 
     <!-- Contact Section -->

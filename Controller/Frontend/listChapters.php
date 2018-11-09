@@ -6,10 +6,17 @@ $manager = new \Model\ChapterManagerPDO($dao);
 $title = 'Les Chapitres'; 
 
 ob_start();
+?>
 
-  echo '<h2 style="text-align:center">Liste des 5 derniers chapitres</h2>';
+<header class="masthead">
+  <div class="container d-flex h-100 align-items-center">
+    <div class="mx-auto text-center">
+    <h1 class="mx-auto my-0 text-uppercase">Listes des chapitres</h1>
+
+<?php 
+
   
-  foreach ($manager->getList(0, 5) as $chapter)
+  foreach ($manager->getList(0, 1000) as $chapter)
   {
     if (strlen($chapter->content()) <= 200)
     {
@@ -29,6 +36,9 @@ ob_start();
   }
 
 ?>
+    </div>
+  </div>
+</header>
 <?php $contentTemplate = ob_get_clean();
  
 require __DIR__.'/../../View/Frontend/showListChapters.php';
