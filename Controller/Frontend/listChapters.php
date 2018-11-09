@@ -3,15 +3,10 @@
 $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
 
-$title = 'Les Chapitres'; 
-
 ob_start();
 ?>
 
-<header class="masthead">
-  <div class="container d-flex h-100 align-items-center">
-    <div class="mx-auto text-center">
-    <h1 class="mx-auto my-0 text-uppercase">Listes des chapitres</h1>
+
 
 <?php 
 
@@ -36,9 +31,7 @@ ob_start();
   }
 
 ?>
-    </div>
-  </div>
-</header>
+
 <?php $contentTemplate = ob_get_clean();
  
 require __DIR__.'/../../View/Frontend/showListChapters.php';

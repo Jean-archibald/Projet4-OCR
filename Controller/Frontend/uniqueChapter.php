@@ -3,14 +3,8 @@
 $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
 
-$title = 'Chapitre numéro ' . $id ; 
-
 ob_start();
 ?>
-<header class="masthead">
-  <div class="container d-flex h-100 align-items-center">
-    <div class="mx-auto text-center">
-    <h1 class="mx-auto my-0 text-uppercase"> <?= $title ?> </h1>
 
 <?php
 $chapter = $manager->getUnique((int) $id);
@@ -24,10 +18,6 @@ if ($chapter->dateCreated() != $chapter->dateModified())
 echo '<p style="text-align: right;"><small><em>Modifiée le ', $chapter->dateModified()->format('d/m/Y à H\hi'), '</em></small></p>';
 }
 ?>
-
-   </div>
-  </div>
-</header>
 
 <?php $contentTemplate = ob_get_clean();
  

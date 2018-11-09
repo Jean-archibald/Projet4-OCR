@@ -5,17 +5,26 @@
     ?>
 
   <body id="page-top">
-    
+    <!-- Header -->
+    <?php
+    include('Web/inc/forAllPages/headerPages.php');
+    ?>
+
     <!-- Navigation -->
     <?php
     include('Web/inc/forAllPages/menuPages.php');
     ?>
     
-    <!-- Header connexion -->
+    <!-- Signup Section -->
     <?php
-    include('Web/inc/connexionPage/HeaderConnexionAdmin.php');
+    include('Web/inc/homePage/newsLetter.php');
     ?>
 
+    <!-- Contact Section -->
+    <?php
+    include('Web/inc/homePage/contact.php');
+    ?>
+    
     <!-- Footer -->
     <?php
     include('Web/inc/forAllPages/footer.php');

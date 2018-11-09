@@ -7,22 +7,17 @@
   <body id="page-top">
     <!-- Navigation -->
     <?php
-    include('Web/inc/forAllPages/menuPages.php');
+    include('Web/incAdmin/forAllPages/menuAdmin.php');
     ?>
-
-    <!-- Content From Controller-->
+  
+    <!-- Header -->
     <?php
-    include('Web/inc/chapterUniquePage/contentChapterUnique.php');
-    ?>
-
-    <!-- Footer -->
-    <?php
-    include('Web/inc/forAllPages/footer.php');
+    include('Web/incAdmin/homeAdminViewInc/headerHomeAdmin.php');
     ?>
 
     <!-- script -->
     <?php
     include('Web/inc/forAllPages/script.php');
     ?>
-  </body>
+
 </html>

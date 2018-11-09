@@ -1,4 +1,5 @@
 <!-- Navigation -->
+<section>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Jean Forteroche</a>
@@ -9,18 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#accueil">Rédiger</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#presentation">Modifier</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/apropos">À propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#supprimer">Corbeille</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/chapitres">Chapitres</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Deconnexion</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/connexion">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#recherche"><i class="fas fa-search"></i></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+</section>

@@ -9,22 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Accueil</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/rediger">Rédiger</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/chapitres">Chapitres</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/modifier">Modifier</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/corbeille">Corbeille</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/apropos">À propos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/connexion">Connexion</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#recherche"><i class="fas fa-search"></i></a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Deconnexion</a>
             </li>
           </ul>
         </div>

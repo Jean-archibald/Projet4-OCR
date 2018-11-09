@@ -8,7 +8,7 @@ class ChapterManagerPDO extends ChapterManager
     /**
      * @see ChapterManager::add()
      */
-    protected function add(Chapter $chapter)
+    public function add(Chapter $chapter)
     {
         $request = $this->dao->prepare('INSERT INTO chapters(title, content, dateCreated, dateModified) 
         VALUES(:title, :content, NOW(), NOW())');

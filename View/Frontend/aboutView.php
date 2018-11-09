@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-    include('Web/inc/head.php');
+    include('Web/inc/forAllPages/head.php');
     ?>
 
   <body id="page-top">
-  
-    <!-- Navigation -->
+     <!-- Navigation -->
+     <?php
+    include('Web/inc/forAllPages/menuPages.php');
+    ?>
+
+    <!-- Header -->
     <?php
-    include('Web/inc/menuNav.php');
+    include('Web/inc/forAllPages/headerPages.php');
+    ?>
+
+    <!-- Contact Section -->
+    <?php
+    include('Web/inc/aboutPage/about.php');
     ?>
 
     
 
-    <!-- Contact Section -->
-    <?php
-    include('Web/inc/about.php');
-    ?>
-
-    <!-- Contact Section -->
-    <?php
-    include('Web/inc/contact.php');
-    ?>
-
     <!-- Footer -->
     <?php
-    include('Web/inc/footer.php');
+    include('Web/inc/forAllPages/footer.php');
     ?>
 
     <!-- script -->
     <?php
-    include('Web/inc/script.php');
+    include('Web/inc/forAllPages/script.php');
     ?>
   </body>
 </html>

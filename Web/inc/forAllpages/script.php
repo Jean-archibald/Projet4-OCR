@@ -5,3 +5,4 @@
     <script src="Web/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="Web/js/grayscale.min.js"></script>
+    
