@@ -15,7 +15,7 @@
               <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/modifier">Modifier</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/corbeille">Corbeille</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/corbeille-0">Corbeille</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Deconnexion</a>

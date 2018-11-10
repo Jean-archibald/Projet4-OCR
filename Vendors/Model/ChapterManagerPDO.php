@@ -10,12 +10,13 @@ class ChapterManagerPDO extends ChapterManager
      */
     protected function add(Chapter $chapter)
     {
-        $request = $this->dao->prepare('INSERT INTO chapters(title, content, publish, dateCreated, dateModified) 
-        VALUES(:title, :content, :publish, NOW(), NOW())');
+        $request = $this->dao->prepare('INSERT INTO chapters(title, content, publish, trash, dateCreated, dateModified) 
+        VALUES(:title, :content, :publish, :trash, NOW(), NOW())');
 
         $request->bindValue(':title', $chapter->title());
         $request->bindValue(':content', $chapter->content());
         $request->bindValue(':publish', $chapter->publish());
+        $request->bindValue(':trash', 'non');
         
 
         $request->execute();
@@ -27,6 +28,14 @@ class ChapterManagerPDO extends ChapterManager
     public function count()
     {
         return $this->dao->query('SELECT COUNT(*) FROM chapters')->fetchColumn();
+    }
+
+     /**
+     * @see ChapterManager::countTrash()
+     */
+    public function countTrash()
+    {
+        return $this->dao->query('SELECT COUNT(*) FROM chapters WHERE trash=\'oui\'')->fetchColumn();
     }
 
     /**
@@ -106,12 +115,47 @@ class ChapterManagerPDO extends ChapterManager
         return $chaptersList;
     } 
 
+     /**
+     * @see ChapterManager::getLisTinTrash()
+     */
+    public function getListInTrash($start = -1, $limit = -1)
+    {
+        $sql = 'SELECT id, title, trash, dateCreated, dateModified 
+        FROM chapters
+        WHERE trash = \'oui\'
+        ORDER BY id DESC';
+
+        //Check if the given param are int
+        if ($start != -1 || $limit != -1)
+        {
+            $sql .= ' LIMIT '.(int) $limit.' OFFSET '.(int) $start;
+        }
+
+        $request = $this->dao->query($sql);
+        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Chapter');
+        
+        $chaptersList = $request->fetchAll();
+        
+
+        // Use foreach to give instance of DateTime as created date and modified date.
+        foreach ($chaptersList as $chapter)
+        {
+            
+            $chapter->setDateCreated(new \DateTime($chapter->dateCreated()));
+            $chapter->setDateModified(new \DateTime($chapter->dateModified()));
+        }
+
+        $request->closeCursor();
+
+        return $chaptersList;
+    } 
+
     /**
      * @see ChapterManager::getUnique()
      */
     public function getUnique($id)
     {
-        $request = $this->dao->prepare('SELECT id, title, content, publish, dateCreated, dateModified 
+        $request = $this->dao->prepare('SELECT id, title, content, publish, trash, dateCreated, dateModified 
         FROM chapters WHERE id = :id');
         $request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
         $request->execute();
@@ -147,12 +191,13 @@ class ChapterManagerPDO extends ChapterManager
     protected function modify(Chapter $chapter)
     {
     $request = $this->dao->prepare('UPDATE chapters 
-    SET  title = :title, content = :content, publish = :publish, dateModified = NOW()
+    SET  title = :title, content = :content, publish = :publish, trash = :trash, dateModified = NOW()
     WHERE id = :id');
    
     $request->bindValue(':title', $chapter->title());
     $request->bindValue(':content', $chapter->content());
     $request->bindValue(':publish', $chapter->publish());
+    $request->bindValue(':trash', $chapter->trash());
     $request->bindValue(':id', $chapter->id(), \PDO::PARAM_INT);
 
     $request->execute();

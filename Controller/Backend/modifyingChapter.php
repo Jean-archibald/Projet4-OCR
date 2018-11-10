@@ -13,6 +13,7 @@ if (isset($_POST['title']))
     $chapterToModify->setTitle($_POST['title']);
     $chapterToModify->setContent($_POST['content']);
     $chapterToModify->setPublish($_POST['publish']);
+    $chapterToModify->setTrash($_POST['trash']);
 
     if($chapterToModify->isValid())
     {
@@ -57,6 +58,13 @@ if (isset($_POST['title']))
         <input type="radio" name="publish" id="publish" value="oui"/>
         <label for="oui">oui</label>
         <input type="radio" name="publish" id="publish" value="non" checked/>
+        <label for="non">non</label>
+        </p>
+
+        <p>Placer dans la corbeille ?: 
+        <input type="radio" name="trash" id="trash" value="oui"/>
+        <label for="oui">oui</label>
+        <input type="radio" name="trash" id="trash" value="non" checked/>
         <label for="non">non</label>
         </p>
         

@@ -73,10 +73,17 @@ elseif(preg_match('#modification-([0-9]+)#', $url , $params))
     require __DIR__.'/Controller/Backend/modifyingChapter.php';
 }
 
-elseif(preg_match('#corbeille#', $url , $params))
+elseif(preg_match('#corbeille-([0-9]+)#', $url , $params))
 {
-    $title = 'Supprimer';
-    require __DIR__.'/View/Backend/deleteView.php';
+    $title = 'Corbeille';
+    $id = $params[1];
+    require __DIR__.'/Controller/Backend/trash.php';
+}
+
+elseif(preg_match('#corbeille-supprimer-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    require __DIR__.'/Controller/Backend/deleteCertificate.php';
 }
 
 

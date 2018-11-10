@@ -19,6 +19,7 @@ foreach ($manager->getListToModify() as $chapter)
     $chapter->dateCreated()->format('d/m/Y à H\hi'),'</td><td>',
     ($chapter->dateCreated() == $chapter->dateModified() ? '-' : $chapter->dateCreated()->format('d/m/Y à H\hi')),'</td><td>
     <a href="modification-',$chapter->id(), '">Modifier</a>
+    | <a href="corbeille-', $chapter->id(), '">Corbeille</a>
     </td></tr>', "\n";
 }
 ?>
