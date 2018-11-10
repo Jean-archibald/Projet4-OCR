@@ -9,6 +9,7 @@ class Chapter extends Entity
 {
     protected   $title,
                 $content,
+                $publish,
                 $dateCreated,
                 $dateModified;
 
@@ -52,6 +53,11 @@ class Chapter extends Entity
         }
     }
 
+    public function setPublish($publish)
+    {
+        $this->publish = $publish;
+    }
+
     public function setDateCreated(\DateTime $dateCreated)
     {
         $this->dateCreated = $dateCreated;
@@ -71,6 +77,11 @@ class Chapter extends Entity
     public function content()
     {
         return $this->content;
+    }
+
+    public function publish()
+    {
+        return $this->publish;
     }
 
     public function dateCreated()

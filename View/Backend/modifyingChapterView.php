@@ -15,13 +15,17 @@
             include('Web/inc/forAllPages/headerPages.php');
             ?>
             
-            
-             <!-- Footer Write  -->
+            <!-- Tiny MCE -->
+            <?php
+            include('Web/incAdmin/writeAdminViewInc/tinyMCE.php')
+            ?>
+
+            <!-- Footer Write  -->
              <?php
             include('Web/incAdmin//writeAdminViewInc/footerWriteAdmin.php');
             ?>
 
-             <!-- script -->
+            <!-- script -->
             <?php
             include('Web/inc/forAllPages/script.php');
             ?>

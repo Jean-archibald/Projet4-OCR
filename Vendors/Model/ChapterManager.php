@@ -32,7 +32,15 @@ abstract class ChapterManager extends Manager
      * @param $limit int The number of chapter to select
      * @return array The list of the chapters, Each entrance is an instance of Chapter.
      */
-    abstract public function getList($start = -1,$limit = -1);
+    abstract public function getListPublish($start = -1,$limit = -1);
+
+     /**
+     * Method return a list of asked chapters
+     * @param $start int The first chapter to select
+     * @param $limit int The number of chapter to select
+     * @return array The list of the chapters, Each entrance is an instance of Chapter.
+     */
+    abstract public function getListToModify($start = -1,$limit = -1);
 
     /**
      * Metho return a specific chapter
@@ -48,17 +56,8 @@ abstract class ChapterManager extends Manager
      * @see self::modify()
      * @return void
      */
-    public function save(Chapter $chapter)
-    {
-        if ($chapter->isValid())
-        {
-            $chapter->isNew() ? $this->add($chapter) : $this->modify($chapter);
-        }
-        else
-        {
-            throw new RuntimeException('Le chapitre doit être valide pour être enregistré');
-        }
-    }
+    abstract protected function save(Chapter $chapter);
+    
 
     /**
      * Method to modify a chapter

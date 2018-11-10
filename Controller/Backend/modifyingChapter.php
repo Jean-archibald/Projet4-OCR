@@ -3,40 +3,32 @@ $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
 
 ob_start();
+$chapterToModify = "";
+$chapterToModify =  $manager->getUnique($id);
+$title = 'Modification de ' . $chapterToModify->title() ;
+
+
 if (isset($_POST['title']))
 {
-    $chapter = new \Entity\Chapter(
-    [
-        'title' => $_POST['title'],
-        'content' => $_POST['content'],
-        'publish' => $_POST['publish']
-    ]
-    );
+    $chapterToModify->setTitle($_POST['title']);
+    $chapterToModify->setContent($_POST['content']);
+    $chapterToModify->setPublish($_POST['publish']);
 
-    if (isset($_POST['id']))
+    if($chapterToModify->isValid())
     {
-        $chapter->setId($_POST['id']);
-    }
+        $manager->save($chapterToModify);
 
-    if (isset($_POST['publish']))
-    {
-        $chapter->setPublish($_POST['publish']);
-    }
-
-    if($chapter->isValid())
-    {
-        $manager->save($chapter);
-
-        $message = $chapter->isNew() ? 'Le chapitre a bien été ajouté !' : 'Le chapitre a bien été modifié !';
+        $message = 'Le chapitre a bien été modifié !';
     }
     else
     {
-        $errors = $chapter->errors();
+        $errors = $chapterToModify->errors();
     }
 }
-?>
 
-<form action="rediger.php" method="post">
+
+?>
+<form action="<?=$url?>.php" method="post">
     <p>
         <?php
             if (isset($message))
@@ -49,14 +41,15 @@ if (isset($_POST['title']))
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_TITLE, $errors))
         echo 'Le titre est invalide.<br />'; ?>
         <label for="title">Titre du chapitre</label> : 
-        <input type="text" name="title" id="title"/>
+        <input type="text" name="title" id="title" value="<?php if (isset($chapterToModify)) echo $chapterToModify->title(); ?>"/>
         </p>
         <br/>
         
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_CONTENT, $errors))
         echo 'Le contenu est invalide.<br />'; ?>
         <label for="content"></label>     
-        <textarea id="mytextarea" name="content" id="content">
+        <textarea id="mytextarea" name="content" id="content" >
+        <?php if (isset($chapterToModify)) echo $chapterToModify->content(); ?>
         </textarea>
         <br/>
 
@@ -67,11 +60,11 @@ if (isset($_POST['title']))
         <label for="non">non</label>
         </p>
         
-        <input type="submit" value="Enregistrer"/>
+        <input type="submit" value="Modifier" name="modifier" />
         </p>
 </form>
 
 <?php 
 $contentTemplate = ob_get_clean();
-require __DIR__.'/../../View/Backend/writeView.php';
+require __DIR__.'/../../View/Backend/modifyingChapterView.php';
 ?>

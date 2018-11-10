@@ -64,7 +64,13 @@ elseif(preg_match('#rediger#', $url , $params))
 elseif(preg_match('#modifier#', $url , $params))
 {
     $title = 'Modifier';
-    require __DIR__.'/View/Backend/modifyView.php';
+    require __DIR__.'/Controller/Backend/listChaptersToModify.php';
+}
+
+elseif(preg_match('#modification-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    require __DIR__.'/Controller/Backend/modifyingChapter.php';
 }
 
 elseif(preg_match('#corbeille#', $url , $params))

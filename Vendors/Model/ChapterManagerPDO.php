@@ -8,13 +8,15 @@ class ChapterManagerPDO extends ChapterManager
     /**
      * @see ChapterManager::add()
      */
-    public function add(Chapter $chapter)
+    protected function add(Chapter $chapter)
     {
-        $request = $this->dao->prepare('INSERT INTO chapters(title, content, dateCreated, dateModified) 
-        VALUES(:title, :content, NOW(), NOW())');
+        $request = $this->dao->prepare('INSERT INTO chapters(title, content, publish, dateCreated, dateModified) 
+        VALUES(:title, :content, :publish, NOW(), NOW())');
 
         $request->bindValue(':title', $chapter->title());
         $request->bindValue(':content', $chapter->content());
+        $request->bindValue(':publish', $chapter->publish());
+        
 
         $request->execute();
     }
@@ -36,12 +38,13 @@ class ChapterManagerPDO extends ChapterManager
     }
 
     /**
-     * @see ChapterManager::getList()
+     * @see ChapterManager::getListPublish()
      */
-    public function getList($start = -1, $limit = -1)
+    public function getListPublish($start = -1, $limit = -1)
     {
-        $sql = 'SELECT id, title, content, dateCreated, dateModified 
-        FROM chapters 
+        $sql = 'SELECT id, title, content, publish, dateCreated, dateModified 
+        FROM chapters
+        WHERE publish = \'oui\'
         ORDER BY id DESC';
 
         //Check if the given param are int
@@ -54,11 +57,46 @@ class ChapterManagerPDO extends ChapterManager
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Chapter');
         
         $chaptersList = $request->fetchAll();
-
+        
 
         // Use foreach to give instance of DateTime as created date and modified date.
         foreach ($chaptersList as $chapter)
         {
+            
+            $chapter->setDateCreated(new \DateTime($chapter->dateCreated()));
+            $chapter->setDateModified(new \DateTime($chapter->dateModified()));
+        }
+
+        $request->closeCursor();
+
+        return $chaptersList;
+    } 
+
+    /**
+     * @see ChapterManager::getLisToModify()
+     */
+    public function getListToModify($start = -1, $limit = -1)
+    {
+        $sql = 'SELECT id, title, content, publish, dateCreated, dateModified 
+        FROM chapters
+        ORDER BY id DESC';
+
+        //Check if the given param are int
+        if ($start != -1 || $limit != -1)
+        {
+            $sql .= ' LIMIT '.(int) $limit.' OFFSET '.(int) $start;
+        }
+
+        $request = $this->dao->query($sql);
+        $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Chapter');
+        
+        $chaptersList = $request->fetchAll();
+        
+
+        // Use foreach to give instance of DateTime as created date and modified date.
+        foreach ($chaptersList as $chapter)
+        {
+            
             $chapter->setDateCreated(new \DateTime($chapter->dateCreated()));
             $chapter->setDateModified(new \DateTime($chapter->dateModified()));
         }
@@ -73,7 +111,7 @@ class ChapterManagerPDO extends ChapterManager
      */
     public function getUnique($id)
     {
-        $request = $this->dao->prepare('SELECT id, title, content, dateCreated, dateModified 
+        $request = $this->dao->prepare('SELECT id, title, content, publish, dateCreated, dateModified 
         FROM chapters WHERE id = :id');
         $request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
         $request->execute();
@@ -88,17 +126,33 @@ class ChapterManagerPDO extends ChapterManager
         return $chapter;
     }
 
-     /**
-   * @see ChapterManager::modify()
-   */
-  protected function modify(Chapter $chapter)
-  {
+    /**
+    * @see ChapterManager::save()
+    */
+    public function save(Chapter $chapter)
+    {
+        if ($chapter->isValid())
+        {
+            $chapter->isNew() ? $this->add($chapter) : $this->modify($chapter);
+        }
+        else
+        {
+            throw new RuntimeException('Le chapitre doit être valide pour être enregistré');
+        }
+    }
+
+    /**
+    * @see ChapterManager::modify()
+    */
+    protected function modify(Chapter $chapter)
+    {
     $request = $this->dao->prepare('UPDATE chapters 
-    SET  title = :title, content = :content, dateModified = NOW()
+    SET  title = :title, content = :content, publish = :publish, dateModified = NOW()
     WHERE id = :id');
    
     $request->bindValue(':title', $chapter->title());
     $request->bindValue(':content', $chapter->content());
+    $request->bindValue(':publish', $chapter->publish());
     $request->bindValue(':id', $chapter->id(), \PDO::PARAM_INT);
 
     $request->execute();

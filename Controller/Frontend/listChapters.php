@@ -11,7 +11,7 @@ ob_start();
 <?php 
 
   
-  foreach ($manager->getList(0, 1000) as $chapter)
+  foreach ($manager->getListPublish(0, 1000) as $chapter)
   {
     if (strlen($chapter->content()) <= 200)
     {
@@ -26,7 +26,7 @@ ob_start();
       $content = $start;
     }
     
-    echo '<h4><a href="?id=', $chapter->id(), '">', $chapter->title(), '</a></h4>', "\n",
+    echo '<h4><a href="chapitre-', $chapter->id(), '">', $chapter->title(), '</a></h4>', "\n",
          '<p>', nl2br($content), '</p>';
   }
 
