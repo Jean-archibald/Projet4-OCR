@@ -5,9 +5,10 @@ use \MyFram\Entity;
 
 class Comment extends Entity
 {
-  protected $chapter,
+  protected $chapterId,
             $author,
             $content,
+            $trash,
             $dateCreated;
 
   const INVALID_AUTHOR = 1;
@@ -18,9 +19,12 @@ class Comment extends Entity
     return !(empty($this->author) || empty($this->content));
   }
 
-  public function setChapter($chapter)
+
+  //SETTERS//
+
+  public function setChapterId($chapterId)
   {
-    $this->chapter = (int) $chapter;
+    $this->chapterId = (int) $chapterId;
   }
 
   public function setAuthor($author)
@@ -43,14 +47,22 @@ class Comment extends Entity
     $this->content = $content;
   }
 
+  public function setTrash($trash)
+  {
+    return $this->trash = $trash;
+  }
+
   public function setDateCreated(\DateTime $dateCreated)
   {
     $this->dateCreated = $dateCreated;
   }
 
-  public function chapter()
+
+  //GETTERS//
+
+  public function chapterId()
   {
-    return $this->chapter;
+    return $this->chapterId;
   }
 
   public function author()
@@ -61,6 +73,11 @@ class Comment extends Entity
   public function content()
   {
     return $this->content;
+  }
+
+  public function trash()
+  {
+    return $this->trash;
   }
 
   public function dateCreated()

@@ -18,19 +18,28 @@ abstract class CommentsManager extends Manager
    * @param $comment Le commentaire à enregistrer
    * @return void
    */
-  public function save(Comment $comment)
-  {
-    if ($comment->isValid())
-    {
-      $comment->isNew() ? $this->add($comment) : $this->modify($comment);
-    }
-    else
-    {
-      throw new \RuntimeException('Le commentaire doit être validé pour être enregistré');
-    }
-  }
+  abstract protected function save(Comment $comment);
+  
+/**
+   * Méthode permettant de cibler les commentaires d'un chapitre.
+   * @param $comments Les commentaires cibles
+   * @return void
+   */
+  abstract public function getListOf($chapterId);
 
-  abstract public function getListOf($chapter);
+  /**
+   * Méthode permettant de cibler les commentaires qui sont dans la poubelle.
+   * @param $comment Le commentaire a verifier
+   * @return void
+   */
+  abstract public function getListTrash($commentId);
+
+  /**
+    * Method to tell the number of comments in the trash
+    * @return int
+    */ 
+  abstract public function countTrash();
+
 
   /**
    * Méthode permettant de modifier un commentaire.
@@ -59,5 +68,5 @@ abstract class CommentsManager extends Manager
    * @param $news L'identifiant de la news dont les commentaires doivent être supprimés
    * @return void
    */
-  abstract public function deleteFromNews($news);
+  abstract public function deleteFromChapter($chapterId);
 }

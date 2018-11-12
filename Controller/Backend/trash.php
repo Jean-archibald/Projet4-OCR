@@ -1,6 +1,7 @@
 <?php
 $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
+$managerComment = new \Model\CommentsManagerPDO($dao);
 
 ob_start();
 $chapterToDelete = "";
@@ -21,7 +22,7 @@ if ($id != 0)
         $errors = $chapterToModify->errors();
     }
 }
-
+$commentsInTrash = $managerComment->countTrash();
 $elementsInTrash = $manager->countTrash();
 ?>
 
@@ -52,11 +53,30 @@ if ( $elementsInTrash != 0)
         | <a href="modification-', $chapter->id(), '">Récuperer</a>
         </td></tr>', "\n";
     }
-
 }
 ?>
 </table>
 
+<p style="text-align: center">Il y a  <?= $commentsInTrash ?> commentaire(s) dans la corbeille :</p>
+<table>
+
+<tr><th>id</th><th>chapterId</th><th>Auteur</th><th>Contenu</th><th>Trash</th><th>Date</th><th>Action</th></tr>
+<?php
+foreach ($managerComment->getListTrash() as $comment)
+    {
+        echo '<tr><td>',
+        $comment->id(), '</td><td>',
+        $comment->chapterId(),'</td><td>',
+        $comment->author(), '</td><td>',
+        $comment->content(), '</td><td>',
+        $comment->trash(), '</td><td>',
+        $comment->dateCreated()->format('d/m/Y à H\hi'),'</td><td>
+        <a href="supprimer-commentaire-', $comment->id(), '">Supprimer</a>
+        | <a href="recuperer-commentaire-', $comment->id(), '">Récuperer</a>
+        </td></tr>', "\n";
+    }
+?>
+</table>
 <?php 
 $contentTemplate = ob_get_clean();
 require __DIR__.'/../../View/Backend/trashView.php';

@@ -10,10 +10,15 @@
     include('Web/inc/forAllPages/menuPages.php');
     ?>
 
-    <!-- Content From Controller-->
+    <!-- Header -->
     <?php
-    include('Web/inc/chapterUniquePage/contentChapterUnique.php');
+    include('Web/inc/forAllPages/headerPages.php');
     ?>
+    <!-- Content From ChapterUnique Controller -->
+    <?php
+    include('Web/inc/chapterUniquePage/contentUniqueChapter.php');
+    ?>
+
 
     <!-- Footer -->
     <?php

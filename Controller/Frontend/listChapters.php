@@ -34,7 +34,7 @@ ob_start();
 
 <?php $contentTemplate = ob_get_clean();
  
-require __DIR__.'/../../View/Frontend/showListChapters.php';
+require __DIR__.'/../../View/Frontend/listChaptersView.php';
 ?>
 
 

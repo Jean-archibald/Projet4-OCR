@@ -23,3 +23,18 @@ td
 {
     padding: 3px;
 }
+
+.pUnique
+{
+    color: white !important;
+}
+
+.h2Unique
+{
+    color: white !important;;
+}
+
+.dateUnique
+{
+text-align: right !important;
+}

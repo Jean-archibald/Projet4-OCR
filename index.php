@@ -29,8 +29,13 @@ elseif(preg_match('#chapitres#', $url , $params))
 elseif(preg_match('#chapitre-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    $title = 'Chapitre numéro ' . $id ;
     require __DIR__.'/Controller/Frontend/uniqueChapter.php';
+}
+
+elseif(preg_match('#signal-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    require __DIR__.'/Controller/Frontend/signal.php';
 }
 
 elseif(preg_match('#contact#', $url , $params))
