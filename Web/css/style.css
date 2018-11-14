@@ -1,4 +1,4 @@
-#headerPages
+/*#headerPages
 {
     border: 3px gray solid;
     color: gray;
@@ -6,6 +6,7 @@
     width: 100%;
     
 }
+*/
 
 table, td 
 {
@@ -24,7 +25,10 @@ td
     padding: 3px;
 }
 
-.pUnique
+
+
+
+/*.pUnique
 {
     color: white !important;
 }
@@ -37,4 +41,11 @@ td
 .dateUnique
 {
 text-align: right !important;
+}
+*/
+
+.text-white-50
+{
+    font-size: 2em !important;
+    
 }
