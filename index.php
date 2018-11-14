@@ -85,10 +85,23 @@ elseif(preg_match('#corbeille-([0-9]+)#', $url , $params))
     require __DIR__.'/Controller/Backend/trash.php';
 }
 
-elseif(preg_match('#corbeille-supprimer-([0-9]+)#', $url , $params))
+elseif(preg_match('#chapitre-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/deleteCertificate.php';
+    require __DIR__.'/Controller/Backend/deleteChapterCertificate.php';
+}
+
+elseif(preg_match('#commentaire-supprimer-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    require __DIR__.'/Controller/Backend/deleteCommentCertificate.php';
+}
+
+
+elseif(preg_match('#recuperer-commentaire-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    require __DIR__.'/Controller/Backend/recoverCommentCertificate.php';
 }
 
 
