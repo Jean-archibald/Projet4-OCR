@@ -2,7 +2,21 @@
 $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
 
+
 ob_start();
+$valueTitle = "";
+$valueContent = "";
+
+if(isset($_POST['title']))
+{
+    $valueTitle = $_POST['title'];
+}
+
+if(isset($_POST['content']))
+{
+    $valueContent = $_POST['content'];
+}
+
 if (isset($_POST['title']))
 {
     $chapter = new \Entity\Chapter(
@@ -49,15 +63,14 @@ if (isset($_POST['title']))
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_TITLE, $errors))
         echo '<p style="color:red;font-size:1.1em">Il manque le titre.<p/>'; ?>
         <label for="title">Titre du chapitre</label> : 
-        <input type="text" name="title" id="title"/>
+        <input type="text" name="title" id="title" value="<?=$valueTitle?>"/>
         </p>
         <br/>
         
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_CONTENT, $errors))
         echo '<p style="color:red;font-size:1.1em">Il manque le contenu.<p/>'; ?>
         <label for="content"></label>     
-        <textarea id="mytextarea" name="content" id="content">
-        </textarea>
+        <textarea id="mytextarea" name="content" id="content"><?=$valueContent?></textarea>
         <br/>
 
         <p>Publier l'article ?: 
