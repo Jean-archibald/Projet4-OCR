@@ -45,7 +45,7 @@ echo '<p>le ', $chapter->dateCreated()->format('d/m/Y à H\hi'), '</p>', "\n",
 
 if ($chapter->dateCreated() != $chapter->dateModified())
 {
-echo '<p class="dateUnique"><small><em>Modifié le ', $chapter->dateModified()->format('d/m/Y à H\hi'), '</em></small></p>';
+echo '<p><small><em>Modifié le ', $chapter->dateModified()->format('d/m/Y à H\hi'), '</em></small></p>';
 }
 ?>
 
@@ -55,18 +55,27 @@ echo '<p class="dateUnique"><small><em>Modifié le ', $chapter->dateModified()->
 <br/>
 
 <?php
+$commentsInChapter = $managerComment->countCommentChapter($chapterId);
+
+if($commentsInChapter == "0")
+{
+    echo '<p>Il n\'existe aucun commentaire pour le moment.</p>';
+}
+
 foreach ($managerComment->getListOf($chapterId) as $comment)
 {
+
     if ($comment->trash() == 'non')
     {
-?>
+    ?>
 
-    <p><strong>Auteur : <?= htmlspecialchars($comment->author()) ?></strong><br/>
-    Date : le <?= $comment->dateCreated()->format('d/m/Y à H\hi') ?><br/>
-    Contenu : <?= nl2br(htmlspecialchars($comment->content())) ?><br/>
-    <?php echo '<a href="signal-',$comment->id(),'">Signaler le commentaire de ' .$comment->author() .' ?</a>'?></p>
-<?php
+        <p><strong>Auteur : <?= htmlspecialchars($comment->author()) ?></strong><br/>
+        Date : le <?= $comment->dateCreated()->format('d/m/Y à H\hi') ?><br/>
+        Contenu : <?= nl2br(htmlspecialchars($comment->content())) ?><br/>
+        <?php echo '<a href="signal-',$comment->id(),'">Signaler le commentaire de ' .$comment->author() .' ?</a>'?></p>
+    <?php
     }
+
 }
 
 ?>
@@ -82,21 +91,22 @@ foreach ($managerComment->getListOf($chapterId) as $comment)
         <h2>Poster un Commentaire : </h2>
         <p>
         <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_AUTHOR, $errors))
-        echo 'Indiquez votre nom.<br />'; ?>
+        echo '<p style="color:red;font-size:1.1em">Il manque le pseudo.<p/>'; ?>
         <label for="author">Votre pseudo</label> : 
         <input type="text" name="author" id="author"/>
         </p>
         <br/>
         
+        <p>
         <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_CONTENT, $errors))
-        echo 'Le contenu est invalide.<br />'; ?>
-        <label for="content">Votre commentaire : </label> <br/>    
-        <textarea name="content" id="content">
-        </textarea>
+        echo '<p style="color:red;font-size:1.1em">Il manque le contenu.<p/>'; ?>
+        <label for="content">Votre commentaire : </label>     
+        <textarea placeholder="Souvenez vous, soyez sympa..."cols="30" rows="2" name="content" id="content" style="vertical-align:top;"></textarea>
+        </p>
         <br/>
         
-        <input type="submit" value="Envoyer"/>
-        </p>
+        <input type="submit" value="Poster le commentaire"/>
+    </p>
 </form>
 
 

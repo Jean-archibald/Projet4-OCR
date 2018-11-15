@@ -137,4 +137,9 @@ class CommentsManagerPDO extends CommentsManager
     {
         return $this->dao->query('SELECT COUNT(*) FROM comments WHERE trash=\'oui\'')->fetchColumn();
     }
+
+    public function countCommentChapter($chapterId)
+    {
+      return $this->dao->query('SELECT COUNT(*) FROM comments WHERE trash =\'non\' AND chapterId = '.(int) $chapterId)->fetchColumn();
+    }
 }

@@ -40,6 +40,11 @@ abstract class CommentsManager extends Manager
     */ 
   abstract public function countTrash();
 
+  /**
+    * Method to tell the number of comments in a chapter
+    * @return int
+    */ 
+    abstract public function countCommentChapter($chapterId);
 
   /**
    * Méthode permettant de modifier un commentaire.
