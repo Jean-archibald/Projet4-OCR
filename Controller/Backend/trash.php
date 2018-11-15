@@ -15,7 +15,7 @@ if ($id != 0)
     {
         $manager->save($chapterToDelete);
 
-        $message = 'Le chapitre a bien été mis dans la Corbeille!';
+        $message = '<p style="color:orange">Le chapitre a bien été mis dans la Corbeille!</p>';
     }
     else
     {
@@ -34,7 +34,7 @@ $elementsInTrash = $manager->countTrash();
 ?>
         
 
-<p style="text-align: center">Il y a  <?= $elementsInTrash ?> chapitre(s) dans la corbeille </p>
+<p style="text-align: center">Il y a  <?= $elementsInTrash ?> chapitre(s) dans la corbeille </p>\<br/>
 <table>
     <?php
     if ( $elementsInTrash != 0)
@@ -57,11 +57,11 @@ $elementsInTrash = $manager->countTrash();
     ?>
 </table>
 
-<p style="text-align: center">Il y a  <?= $commentsInTrash ?> commentaire(s) dans la corbeille </p>
+<br/><p style="text-align: center">Il y a  <?= $commentsInTrash ?> commentaire(s) dans la corbeille </p><br/>
 
 <table>
     <?php
-    if ( $elementsInTrash != 0)
+    if ( $commentsInTrash != 0)
     {
         ?>
     <tr><th>id</th><th>chapterId</th><th>Auteur</th><th>Contenu</th><th>Trash</th><th>Date</th><th>Action</th></tr>

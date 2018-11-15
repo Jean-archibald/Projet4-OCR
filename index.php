@@ -20,9 +20,10 @@ elseif(preg_match('#apropos#', $url , $params))
     require __DIR__.'/View/Frontend/aboutView.php';
 }
 
-elseif(preg_match('#chapitres#', $url , $params))
+elseif(preg_match('#listesChapitres-([0-9]+)#', $url , $params))
 {
     $title = 'Les chapitres';
+    $id = $params[1];
     require __DIR__.'/Controller/Frontend/listChapters.php';
 }
 

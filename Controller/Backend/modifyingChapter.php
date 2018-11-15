@@ -19,7 +19,7 @@ if (isset($_POST['title']))
     {
         $manager->save($chapterToModify);
 
-        $message = 'Le chapitre a bien été modifié !';
+        $message = '<p style="color:green">Le chapitre a bien été modifié !<p/>';
     }
     else
     {
@@ -47,7 +47,7 @@ if (isset($_POST['title']))
         <br/>
         
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_CONTENT, $errors))
-        echo 'Le contenu est invalide.<br />'; ?>
+        echo 'Le contenu est invalide.<br />';?>
         <label for="content"></label>     
         <textarea id="mytextarea" name="content" id="content" >
         <?php if (isset($chapterToModify)) echo $chapterToModify->content(); ?>

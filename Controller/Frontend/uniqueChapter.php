@@ -16,8 +16,8 @@ if (isset($_POST['author']))
 {
     $comment = new \Entity\Comment(
     [
-        'author' => $_POST['author'],
-        'content' => $_POST['content']
+        'author' => htmlspecialchars($_POST['author']),
+        'content' => htmlspecialchars($_POST['content'])
     ]
     );
 

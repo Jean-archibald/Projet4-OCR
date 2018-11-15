@@ -13,7 +13,7 @@ $title = 'Êtes vous sûr de vouloir supprimer le chapitre ' . $chapterToDeleteT
 if (isset($_POST['trash']))
 {
     $manager->delete($chapterToDeleteId);
-    $message = 'L\'élement a bien été supprimé!';
+    $message = '<p style="color:redorange">L\'élement a bien été supprimé!</p>';
 }
 
 ?>

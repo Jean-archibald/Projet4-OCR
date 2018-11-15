@@ -31,6 +31,15 @@ class ChapterManagerPDO extends ChapterManager
     }
 
      /**
+     * @see ChapterManager::countPublish()
+     */
+    public function countPublish()
+    {
+        return $this->dao->query('SELECT COUNT(*) FROM chapters WHERE publish=\'oui\'')->fetchColumn();
+    }
+    
+
+     /**
      * @see ChapterManager::countTrash()
      */
     public function countTrash()
@@ -86,8 +95,9 @@ class ChapterManagerPDO extends ChapterManager
      */
     public function getListToModify($start = -1, $limit = -1)
     {
-        $sql = 'SELECT id, title, content, publish, dateCreated, dateModified 
+        $sql = 'SELECT id, title, content, publish, trash, dateCreated, dateModified 
         FROM chapters
+        WHERE trash = \'non\'
         ORDER BY id DESC';
 
         //Check if the given param are int

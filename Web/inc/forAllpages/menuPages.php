@@ -16,7 +16,7 @@
               <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/apropos">À propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/chapitres">Chapitres</a>
+              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/listesChapitres-1">Chapitres</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/contact">Contact</a>

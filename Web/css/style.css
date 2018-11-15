@@ -1,12 +1,7 @@
-/*#headerPages
+span
 {
-    border: 3px gray solid;
-    color: gray;
-    background-color: black;
-    width: 100%;
-    
+    color:red;
 }
-*/
 
 table, td 
 {
@@ -24,25 +19,6 @@ td
 {
     padding: 3px;
 }
-
-
-
-
-/*.pUnique
-{
-    color: white !important;
-}
-
-.h2Unique
-{
-    color: white !important;;
-}
-
-.dateUnique
-{
-text-align: right !important;
-}
-*/
 
 .text-white-50
 {

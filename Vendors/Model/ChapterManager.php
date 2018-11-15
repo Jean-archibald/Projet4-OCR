@@ -20,6 +20,12 @@ abstract class ChapterManager extends Manager
     abstract public function count();
 
     /**
+    * Method to tell the number of chapter to publish
+    * @return int
+    */
+    abstract public function countPublish();
+
+    /**
     * Method to tell the number of chapter in the trash
     * @return int
     */
@@ -38,7 +44,7 @@ abstract class ChapterManager extends Manager
      * @param $limit int The number of chapter to select
      * @return array The list of the chapters, Each entrance is an instance of Chapter.
      */
-    abstract public function getListPublish($start = -1,$limit = -1);
+    abstract public function getListPublish($start ,$limit );
 
      /**
      * Method return a list of asked chapters
@@ -72,6 +78,7 @@ abstract class ChapterManager extends Manager
      * @return void
      */
     abstract protected function save(Chapter $chapter);
+    
     
 
     /**
