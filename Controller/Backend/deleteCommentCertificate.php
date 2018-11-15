@@ -12,7 +12,7 @@ $title = 'Êtes vous sûr de vouloir supprimer le commentaire ?';
 if (isset($_POST['trash']))
 {
     $managerComment->delete($commentToDeleteId);
-    $message = '<p style="color:redorange">L\'élement a bien été supprimé!</p>';
+    $message = '<p style="color:orange;font-size:2em;text-align:center;">Le commentaire a bien été supprimé!<p/>';
 }
 
 ?>
@@ -23,7 +23,7 @@ if (isset($_POST['trash']))
             {
                 echo $message, '<br />';
             }
-            
+
             if (!isset($message))
             {
         ?>

@@ -15,7 +15,7 @@ if ($id != 0)
     {
         $manager->save($chapterToDelete);
 
-        $message = '<p style="color:orange">Le chapitre a bien été mis dans la Corbeille!</p>';
+        $message = '<p style="color:orange;font-size:2em;text-align:center;">Le chapitre a bien été mis dans la Corbeille!</p>';
     }
     else
     {

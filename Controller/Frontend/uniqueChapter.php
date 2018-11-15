@@ -36,13 +36,7 @@ if (isset($_POST['author']))
     }
 }
 
-if (isset($_POST['trash']))
-    {
-        $managerComment->delete($chapterToDeleteId);
-        $message = 'Le chapitre a bien été supprimé!';
-    }
 ?>
-
 
 <?php
 echo '<p>le ', $chapter->dateCreated()->format('d/m/Y à H\hi'), '</p>', "\n",
@@ -70,7 +64,7 @@ foreach ($managerComment->getListOf($chapterId) as $comment)
     <p><strong>Auteur : <?= htmlspecialchars($comment->author()) ?></strong><br/>
     Date : le <?= $comment->dateCreated()->format('d/m/Y à H\hi') ?><br/>
     Contenu : <?= nl2br(htmlspecialchars($comment->content())) ?><br/>
-    <?php echo '<a href="signal-',$comment->id(), '">Signaler le commentaire ?</a>'?></p>
+    <?php echo '<a href="signal-',$comment->id(),'">Signaler le commentaire de ' .$comment->author() .' ?</a>'?></p>
 <?php
     }
 }
