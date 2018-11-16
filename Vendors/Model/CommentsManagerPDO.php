@@ -25,26 +25,21 @@ class CommentsManagerPDO extends CommentsManager
     {
       throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
     }
-
     $q = $this->dao->prepare('SELECT id, chapterId, author, content, trash, dateCreated 
     FROM comments 
     WHERE chapterId = :chapterId');
-
     $q->bindValue(':chapterId', $chapterId, \PDO::PARAM_INT);
-
     $q->execute();
-
     $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
-
     $comments = $q->fetchAll();
-
     foreach ($comments as $comment)
     {
       $comment->setDateCreated(new \DateTime($comment->dateCreated()));
     }
-
     return $comments;
   }
+  
+
 
   public function getListTrash($start = -1, $limit = -1)
     {

@@ -48,7 +48,7 @@ $elementsInTrash = $manager->countTrash();
             echo '<tr><td>',
             $chapter->title(), '</td><td>',
             $chapter->dateCreated()->format('d/m/Y à H\hi'),'</td><td>',
-            ($chapter->dateCreated() == $chapter->dateModified() ? '-' : $chapter->dateCreated()->format('d/m/Y à H\hi')),'</td><td>
+            ($chapter->dateCreated() == $chapter->dateModified() ? '-' : $chapter->dateModified()->format('d/m/Y à H\hi')),'</td><td>
             <a href="chapitre-supprimer-', $chapter->id(), '">Supprimer</a>
             | <a href="modification-', $chapter->id(), '">Récuperer</a>
             </td></tr>', "\n";
