@@ -107,7 +107,7 @@ class CommentsManagerPDO extends CommentsManager
 
   public function deleteFromChapter($chapterId)
   {
-    $this->dao->exec('DELETE FROM comments WHERE chapter = '.(int) $chapterId);
+    $this->dao->exec('DELETE FROM comments WHERE chapterId = '.(int) $chapterId);
   }
 
   /**

@@ -41,7 +41,7 @@ if (isset($_POST['title']))
     {
         $manager->save($chapter);
 
-        $message = '<p style="color:green;font-size:2em;text-align:center;">Le chapitre a bien été ajouté !<p/>';
+        $message = '<p class="messageValidation">Le chapitre a bien été ajouté !<p/>';
     }
     else
     {
@@ -61,14 +61,14 @@ if (isset($_POST['title']))
         
         <p>
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_TITLE, $errors))
-        echo '<p style="color:red;font-size:1.1em">Il manque le titre.<p/>'; ?>
+        echo '<p class="messageProbleme">Il manque le titre.<p/>'; ?>
         <label for="title">Titre du chapitre</label> : 
         <input type="text" name="title" id="title" value="<?=$valueTitle?>"/>
         </p>
         <br/>
         
         <?php if (isset($errors) && in_array(\Entity\Chapter::INVALID_CONTENT, $errors))
-        echo '<p style="color:red;font-size:1.1em">Il manque le contenu.<p/>'; ?>
+        echo '<p class="messageProbleme">Il manque le contenu.<p/>'; ?>
         <label for="content"></label>     
         <textarea id="mytextarea" name="content" id="content"><?=$valueContent?></textarea>
         <br/>

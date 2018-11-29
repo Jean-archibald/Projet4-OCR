@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+  
     <?php
     include('Web/inc/forAllPages/head.php');
     ?>

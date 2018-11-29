@@ -17,7 +17,7 @@ if (isset($_POST['trash']))
     if($commentToRecover->isValid())
     {
         $managerComment->save($commentToRecover);
-        $message = 'L\'élement a bien été récupéré!';
+        $message ='<p class="messageValidation">Le commentaire a été récupéré!<p/>';
     }
     else
     {

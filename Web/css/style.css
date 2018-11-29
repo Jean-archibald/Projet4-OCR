@@ -26,3 +26,23 @@ td
     font-size: 2em !important;
     
 }
+
+.messageValidation
+{
+color:green;
+font-size:2em;
+text-align:center;
+}
+
+.messageAvertissement
+{
+color:orange;
+font-size:2em;
+text-align:center;
+}
+
+.messageProbleme
+{
+color:red;
+font-size:1.1em;
+}
