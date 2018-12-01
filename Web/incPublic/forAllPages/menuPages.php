@@ -10,19 +10,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR">Accueil</a>
+              <a class="nav-link js-scroll-trigger" href="./">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/apropos">À propos</a>
+              <a class="nav-link js-scroll-trigger" href="apropos">À propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/listesChapitres-1">Chapitres</a>
+              <a class="nav-link js-scroll-trigger" href="listesChapitres-1">Chapitres</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="http://localhost:8888/Projet4-OCR/connexion">Connexion</a>
+              <a class="nav-link js-scroll-trigger" href="connexion">Connexion</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#recherche"><i class="fas fa-search"></i></a>

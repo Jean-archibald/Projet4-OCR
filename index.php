@@ -48,61 +48,61 @@ elseif(preg_match('#contact#', $url , $params))
 elseif(preg_match('#connexion#', $url , $params))
 {
     $title = 'Connexion';
-    require __DIR__.'/View/Frontend/connexionView.php';
+    require __DIR__.'/Controller/Frontend/connexionController.php';
 }
-
-elseif(preg_match('#admin#', $url , $params))
-{
-    require __DIR__.'/View/Backend/adminHomeView.php';
-}
-
 
 
 //PARTIE BACKEND EDITEUR
 
 
+elseif(preg_match('#admin#', $url , $params))
+{
+    require __DIR__.'/Controller/Backend/adminHomeController.php';
+}
+
+
 elseif(preg_match('#rediger#', $url , $params))
 {
     $title = 'Rédiger';
-    require __DIR__.'/Controller/Backend/postChapter.php';
+    require __DIR__.'/Controller/Backend/postChapterController.php';
 }
 
 elseif(preg_match('#modifier#', $url , $params))
 {
     $title = 'Modifier';
-    require __DIR__.'/Controller/Backend/listChaptersToModify.php';
+    require __DIR__.'/Controller/Backend/listChaptersToModifyController.php';
 }
 
 elseif(preg_match('#modification-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/modifyingChapter.php';
+    require __DIR__.'/Controller/Backend/modifyingChapterController.php';
 }
 
 elseif(preg_match('#corbeille-([0-9]+)#', $url , $params))
 {
     $title = 'Corbeille';
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/trash.php';
+    require __DIR__.'/Controller/Backend/trashController.php';
 }
 
 elseif(preg_match('#chapitre-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/deleteChapterCertificate.php';
+    require __DIR__.'/Controller/Backend/deleteChapterCertificateController.php';
 }
 
 elseif(preg_match('#commentaire-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/deleteCommentCertificate.php';
+    require __DIR__.'/Controller/Backend/deleteCommentCertificateController.php';
 }
 
 
 elseif(preg_match('#recuperer-commentaire-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/recoverCommentCertificate.php';
+    require __DIR__.'/Controller/Backend/recoverCommentCertificateController.php';
 }
 
 

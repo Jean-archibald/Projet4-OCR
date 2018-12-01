@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__.'/../MyFram/SplClassLoader.php';
 
 $MyFramLoader = new SplClassLoader('MyFram', __DIR__.'/../');

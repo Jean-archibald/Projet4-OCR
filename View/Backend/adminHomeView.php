@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-    include('Web/inc/forAllPages/head.php');
+    include('Web/incPublic/forAllPages/head.php');
     ?>
 
   <body id="page-top">
@@ -17,7 +17,7 @@
 
     <!-- script -->
     <?php
-    include('Web/inc/forAllPages/script.php');
+    include('Web/incPublic/forAllPages/script.php');
     ?>
 
 </html>

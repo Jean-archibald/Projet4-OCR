@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-    include('Web/inc/forAllPages/head.php');
+    include('Web/incPublic/forAllPages/head.php');
     ?>
         <body id="page-top">
             
@@ -12,7 +12,7 @@
 
             <!-- Header -->
             <?php
-            include('Web/inc/forAllPages/headerPages.php');
+            include('Web/incPublic/forAllPages/headerPages.php');
             ?>
             
             <!-- Tiny MCE -->
@@ -27,7 +27,7 @@
 
             <!-- script -->
             <?php
-            include('Web/inc/forAllPages/script.php');
+            include('Web/incPublic/forAllPages/script.php');
             ?>
 
             <!-- script tinyMCE -->

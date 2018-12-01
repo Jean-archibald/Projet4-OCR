@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-    include('Web/inc/forAllPages/head.php');
+    include('Web/incPublic/forAllPages/head.php');
     ?>
         <body id="page-top">
             
             <!-- Navigation -->
             <?php
-            include('Web/inc/forAllPages/menuPages.php');
+            include('Web/incPublic/forAllPages/menuPages.php');
             ?>
 
             <!-- Header -->
             <?php
-            include('Web/inc/forAllPages/headerPages.php');
+            include('Web/incPublic/forAllPages/headerPages.php');
             ?>
 
             <?= $contentTemplate ?>
             
             <!-- Footer Write  -->
              <?php
-            include('Web/inc/forAllPages/footer.php');
+            include('Web/incPublic/forAllPages/footer.php');
             ?>
 
             <!-- script -->
             <?php
-            include('Web/inc/forAllPages/script.php');
+            include('Web/incPublic/forAllPages/script.php');
             ?>
 
             <!-- script tinyMCE -->

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    include('Web/inc/forAllPages/head.php');
+    include('Web/incPublic/forAllPages/head.php');
     ?>
 
   <body id="page-top">
     
     <!-- Navigation -->
     <?php
-    include('Web/inc/forAllPages/menuPages.php');
+    include('Web/incPublic/forAllPages/menuPages.php');
     ?>
     
     <!-- Header connexion -->
     <?php
-    include('Web/inc/connexionPage/HeaderConnexionAdmin.php');
+    include('Web/incPublic/connexionPage/HeaderConnexionAdmin.php');
     ?>
 
     <!-- Footer -->
     <?php
-    include('Web/inc/forAllPages/footer.php');
+    include('Web/incPublic/forAllPages/footer.php');
     ?>
 
     <!-- script -->
     <?php
-    include('Web/inc/forAllPages/script.php');
+    include('Web/incPublic/forAllPages/script.php');
     ?>
   </body>
 </html>
