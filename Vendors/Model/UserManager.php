@@ -13,5 +13,11 @@ abstract class UserManager extends Manager
     */
     abstract public function userExist($nickname,$password);
 
+     /**
+    * Method to get a user by his id
+    * @return bool
+    */
+    abstract public function getUserByNickname($nickname);
+
 
 }

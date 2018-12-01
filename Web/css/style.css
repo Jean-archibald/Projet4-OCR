@@ -47,6 +47,17 @@ color:red;
 font-size:1.1em;
 }
 
+.messageInfo
+{
+   text-align: center;
+   font-size:1.2em;
+}
+
+.commentsStyle
+{
+    text-align: center;
+}
+
 .tdAdmin
 {
     background-color: white;
@@ -56,4 +67,28 @@ font-size:1.1em;
 .formadmin
 {
     margin : 0 auto;
+}
+
+.uniqueChapterTitle
+{
+    color:#64a19d;
+    text-align:center;
+    padding-bottom:20px;
+}
+
+.uniqueChapterContent
+{
+    padding-left : 20px;
+    padding-right : 20px;
+    text-align:justify;
+}
+
+.validateInput
+{
+    color:#64a19d;
+}
+
+.connectStyle
+{
+    text-align: center;
 }

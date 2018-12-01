@@ -16,13 +16,14 @@ if(isset($_POST['nickname']))
     {
         if($userExist == 1)
         {
+            $userInfos = $userManager->getUserByNickname($nickname);
             $_SESSION['nickname'] = $userInfos['nickname'];
             $_SESSION['password'] = $userInfos['password'];
             header('Location: admin');
         }
         else
         {
-            $message = '<p class="messageProbleme">L\'adresse mail n\'est pas répertorié ou le mot de passe est invalide !<p/>';
+            $message = '<p class="messageProbleme">L\'adresse mail n\'éxiste pas ou le mot de passe est invalide !<p/>';
         }
     }
     else
@@ -32,6 +33,7 @@ if(isset($_POST['nickname']))
 }
 
 ?>
+
 
 <form action="" method="post">
     <p>
@@ -63,9 +65,9 @@ if(isset($_POST['nickname']))
         </tr>
 
     </table>
-    <br/><br/>    
-    <i class="fas fa-lock fa-2x mb-2 text-white"></i>
+    <br/>   
     <input type="submit" value="Se connecter" class="btn btn-primary mx-auto" />
+    
         
 </form>
 

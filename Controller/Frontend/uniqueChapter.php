@@ -41,8 +41,8 @@ if (isset($_POST['author']))
 
 <?php
 echo '<p>le ', $chapter->dateCreated()->format('d/m/Y à H\hi'), '</p>', "\n",
-    '<h2 style="color:#64a19d;text-align:center;padding-bottom:20px;">', $chapter->title(), '</h2>', "\n",
-    '<p style="text-align:justify">', nl2br($chapter->content()), '</p>', "\n";
+    '<h2 class="uniqueChapterTitle">', $chapter->title(), '</h2>', "\n",
+    '<p>', nl2br($chapter->content()), '</p>', "\n";
 
 if ($chapter->dateCreated() != $chapter->dateModified())
 {
@@ -53,7 +53,7 @@ echo '<p><small><em>Modifié le ', $chapter->dateModified()->format('d/m/Y à H\
 <br/>
 <br/>
 
-<div style="text-align:center;">
+<div class="commentsStyle">
     <div>
         <h3>Liste des commentaires : </h3>
         <br/>
@@ -90,22 +90,32 @@ echo '<p><small><em>Modifié le ', $chapter->dateModified()->format('d/m/Y à H\
                 ?>
                 <h3>Poster un Commentaire : </h3>
                 <br/>
-                <p>
-                <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_AUTHOR, $errors))
-                echo '<p style="color:red;font-size:1.1em">Il manque le pseudo.<p/>'; ?>
-                <label for="author">Votre pseudo</label> : 
-                <input type="text" name="author" id="author"/>
-                </p>
+                <table>
+                    <tr>
+                        <td align="right">    
+                            <label for="author">Votre pseudo</label> : 
+                        </td>
+                        <td>
+                            <input type="text" name="author" id="author"/>
+                        </td>         
+                    </tr>
+                    <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_AUTHOR, $errors))
+                            echo '<p class="messageProbleme">Il manque le pseudo.<p/>'; ?>
+
+                    <tr>
+                        <td align="right">           
+                            <label for="content">Votre commentaire : </label>   
+                        </td>
+                        <td>
+                            <textarea placeholder="Souvenez vous, soyez sympa..."cols="30" rows="2" name="content" id="content" style="vertical-align:top;"></textarea>
+                        </td>
+                    </tr>
+                    <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_CONTENT, $errors))
+                            echo '<p class="messageProbleme">Il manque le contenu.<p/>'; ?>
+
+                </table>
                 <br/>
-                
-                <p>
-                <?php if (isset($errors) && in_array(\Entity\Comment::INVALID_CONTENT, $errors))
-                echo '<p style="color:red;font-size:1.1em">Il manque le contenu.<p/>'; ?>
-                <label for="content">Votre commentaire : </label>     
-                <textarea placeholder="Souvenez vous, soyez sympa..."cols="30" rows="2" name="content" id="content" style="vertical-align:top;"></textarea>
-                </p>
-                <br/>
-                <input type="submit" value="Poster le commentaire"/>
+                <input type="submit" value="Poster le commentaire" class="validateInput"/>
             </p>
         </form>
     </div>

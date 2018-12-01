@@ -1,6 +1,7 @@
 <?php
-if( $_SESSION['nickname'] = 'nickname' &&
-$_SESSION['password'] = 'password')
+var_dump($_SESSION);
+if(isset($_SESSION) && $_SESSION['nickname'] == 'jean' &&
+$_SESSION['password'] == 'forteroche')
 {
     require __DIR__.'/../../View/Backend/adminHomeView.php';
 }

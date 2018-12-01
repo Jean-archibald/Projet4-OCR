@@ -16,6 +16,11 @@
     include('Web/incPublic/connexionPage/HeaderConnexionAdmin.php');
     ?>
 
+    <!-- Header connexion -->
+    <?php
+    include('Web/incPublic/connexionPage/connectingSection.php');
+    ?>
+
     <!-- Footer -->
     <?php
     include('Web/incPublic/forAllPages/footer.php');

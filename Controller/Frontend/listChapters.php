@@ -48,7 +48,7 @@ for($i=1;$i<=$totalPages ;$i++)
   }
   else
   {
-  echo '<a href="http://localhost:8888/Projet4-OCR/listesChapitres-' .$i.'">'.$i.'</a> ';
+  echo '<a href="listesChapitres-' .$i.'">'.$i.'</a> ';
   }
 }
 

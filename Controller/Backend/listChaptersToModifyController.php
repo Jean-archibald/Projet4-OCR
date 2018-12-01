@@ -6,7 +6,7 @@ ob_start();
 
 ?>
 
-<p style="text-align: center">Il y a  <?= $manager->count() ?> chapitre(s) :</p>
+<p class="messageInfo">Il y a  <?= $manager->count() ?> chapitre(s) :</p>
 <table>
       <tr><th>Titre</th><th>Publier</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
 <?php

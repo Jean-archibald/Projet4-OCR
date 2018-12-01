@@ -52,8 +52,6 @@ if (isset($_POST['trash']))
 </form>
 
 
-
-
 <?php 
 $contentTemplate = ob_get_clean();
 require __DIR__.'/../../View/Backend/deleteCertificateView.php';
