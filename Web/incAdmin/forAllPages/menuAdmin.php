@@ -21,7 +21,7 @@
               <a class="nav-link js-scroll-trigger" href="corbeille-0">Corbeille</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="./">Deconnexion</a>
+              <a class="nav-link js-scroll-trigger" href="sessiondestroy">Deconnexion</a>
             </li>
           </ul>
         </div>

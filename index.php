@@ -57,52 +57,73 @@ elseif(preg_match('#connexion#', $url , $params))
 
 elseif(preg_match('#admin#', $url , $params))
 {
-    require __DIR__.'/Controller/Backend/adminHomeController.php';
+    $direction = 'adminHome';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 
 elseif(preg_match('#rediger#', $url , $params))
 {
     $title = 'Rédiger';
-    require __DIR__.'/Controller/Backend/postChapterController.php';
+    $direction = 'postChapter';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 elseif(preg_match('#modifier#', $url , $params))
 {
     $title = 'Modifier';
-    require __DIR__.'/Controller/Backend/listChaptersToModifyController.php';
+    $direction = 'listChaptersToModify';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 elseif(preg_match('#modification-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/modifyingChapterController.php';
+    $direction = 'modifyingChapter';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 elseif(preg_match('#corbeille-([0-9]+)#', $url , $params))
 {
     $title = 'Corbeille';
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/trashController.php';
+    $direction = 'trash';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 elseif(preg_match('#chapitre-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/deleteChapterCertificateController.php';
+    $direction = 'deleteChapterCertificate';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 elseif(preg_match('#commentaire-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/deleteCommentCertificateController.php';
+    $direction = 'deleteCommentCertificate';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
 
 elseif(preg_match('#recuperer-commentaire-([0-9]+)#', $url , $params))
 {
     $id = $params[1];
-    require __DIR__.'/Controller/Backend/recoverCommentCertificateController.php';
+    $direction = 'recoverCommentCertificate';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
+}
+
+elseif(preg_match('#sessiondestroy#', $url , $params))
+{
+
+    require __DIR__.'/Controller/Backend/deconnexionController.php';
+}
+
+
+elseif(preg_match('#unauthorisedAcces#', $url , $params))
+{
+
+    require __DIR__.'/View/Backend/unauthorisedAccessView.php';
 }
 
 

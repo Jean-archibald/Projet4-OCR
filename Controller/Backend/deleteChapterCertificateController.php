@@ -4,6 +4,7 @@ $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $manager = new \Model\ChapterManagerPDO($dao);
 $managerComment = new \Model\CommentsManagerPDO($dao);
 
+
 ob_start();
 $chapterToDelete = "";
 $chapterToDelete =  $manager->getUnique($id);
