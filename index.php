@@ -69,10 +69,17 @@ elseif(preg_match('#rediger#', $url , $params))
     require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
-elseif(preg_match('#modifier#', $url , $params))
+elseif(preg_match('#modifierChapitres#', $url , $params))
 {
     $title = 'Modifier';
     $direction = 'listChaptersToModify';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
+}
+
+elseif(preg_match('#modifierCommentaires#', $url , $params))
+{
+    $title = 'Modifier';
+    $direction = 'listCommentsToModify';
     require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
@@ -87,7 +94,15 @@ elseif(preg_match('#corbeille-([0-9]+)#', $url , $params))
 {
     $title = 'Corbeille';
     $id = $params[1];
-    $direction = 'trash';
+    $direction = 'trashChapter';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
+}
+
+elseif(preg_match('#envoyer-commentaire-([0-9]+)#', $url , $params))
+{
+    $title = 'Corbeille';
+    $id = $params[1];
+    $direction = 'trashComment';
     require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 

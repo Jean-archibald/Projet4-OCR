@@ -9,6 +9,7 @@ class Comment extends Entity
             $author,
             $content,
             $trash,
+            $comment_signal,
             $dateCreated;
 
   const INVALID_AUTHOR = 1;
@@ -52,6 +53,11 @@ class Comment extends Entity
     return $this->trash = $trash;
   }
 
+  public function setComment_Signal($comment_signal)
+  {
+    return $this->$comment_signal = $comment_signal;
+  }
+
   public function setDateCreated(\DateTime $dateCreated)
   {
     $this->dateCreated = $dateCreated;
@@ -78,6 +84,11 @@ class Comment extends Entity
   public function trash()
   {
     return $this->trash;
+  }
+
+  public function comment_signal()
+  {
+    return $this->comment_signal;
   }
 
   public function dateCreated()

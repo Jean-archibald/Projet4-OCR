@@ -4,24 +4,14 @@ $manager = new \Model\ChapterManagerPDO($dao);
 $managerComment = new \Model\CommentsManagerPDO($dao);
 
 ob_start();
-$chapterToDelete = "";
+$commentToDelete = "";
 
 if ($id != 0)
 {
-    $chapterToDelete = $manager->getUnique($id);
-    $chapterToDelete->setTrash('oui');
-    $chapterToDelete->setPublish('non');
-    if($chapterToDelete->isValid())
-    {
-        $manager->save($chapterToDelete);
-
-        $message = '<p class="messageAvertissement">Le chapitre a bien été mis dans la Corbeille!</p>';
-    }
-    else
-    {
-        $errors = $chapterToModify->errors();
-    }
+        $managerComment->comment_trash($id);
+        $message = '<p class="messageAvertissement">Le commentaire a bien été mis dans la Corbeille!</p>';
 }
+
 $commentsInTrash = $managerComment->countTrash();
 $elementsInTrash = $manager->countTrash();
 ?>

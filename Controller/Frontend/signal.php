@@ -5,9 +5,7 @@ $managerComment = new \Model\CommentsManagerPDO($dao);
 $title = "Signaler";
 ob_start();
 
-$commentToSignal = $managerComment->get($id);
-$commentToSignal->setTrash('oui');
-$managerComment->save($commentToSignal);
+$commentToSignal = $managerComment->comment_signal($id);
 
 ?>
 <h2 class="messageAvertissement">Merci, Le commentaire a été signalé.</h2>

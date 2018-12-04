@@ -35,6 +35,22 @@ abstract class CommentsManager extends Manager
   abstract public function getListTrash($commentId);
 
   /**
+   * Méthode permettant de cibler les commentaires qui sont dans la poubelle.
+   * @param $comment Le commentaire a verifier
+   * @return void
+   */
+  abstract public function getListSignal($commentId);
+
+
+  /**
+   * Méthode permettant de cibler les commentaires qui sont dans la poubelle.
+   * @param $comment Le commentaire a verifier
+   * @return void
+   */
+  abstract public function getListComments($commentId);
+
+
+  /**
     * Method to tell the number of comments in the trash
     * @return int
     */ 
@@ -61,11 +77,41 @@ abstract class CommentsManager extends Manager
   abstract public function get($id);
 
   /**
+   * Méthode permettant d'obtenir un commentaire spécifique.
+   * @param $id L'identifiant du commentaire
+   * @return Comment
+   */
+  abstract public function comment_signal($id);
+
+
+  /**
+   * Méthode permettant d'obtenir un commentaire spécifique.
+   * @param $id L'identifiant du commentaire
+   * @return Comment
+   */
+  abstract public function comment_unsignal($id);
+
+  /**
+   * Méthode permettant d'obtenir un commentaire spécifique.
+   * @param $id L'identifiant du commentaire
+   * @return Comment
+   */
+  abstract public function comment_trash($id);
+
+  /**
    * Méthode permettant de supprimer un commentaire.
    * @param $id L'identifiant du commentaire à supprimer
    * @return void
    */
   abstract public function delete($id);
+
+   /**
+    * Method to tell the total number of commentaires
+    * @return int
+    */
+    abstract public function count();
+
+  
 
   /**
 

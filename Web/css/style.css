@@ -64,6 +64,11 @@ font-size:1.1em;
 
 }
 
+.thsignal
+{
+    background-color: darkred;
+}
+
 .formadmin
 {
     margin : 0 auto;

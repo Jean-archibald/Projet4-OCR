@@ -4,25 +4,20 @@ $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $managerComment = new \Model\CommentsManagerPDO($dao);
 
 ob_start();
-$commentToRecover = "";
+$commentToUnSignal= "";
 $commentToRecover =  $managerComment->get($id);
 $commentToRecoverId = $commentToRecover->id();
 $title = 'Êtes vous sûr de vouloir récuperer le commentaire ?';
 
-if (isset($_POST['trash']))
+if (isset($_POST['comment_signal']) && $_POST['comment_signal'] == 'non')
 {
-    
-    $commentToRecover->setTrash($_POST['trash']);
-
-    if($commentToRecover->isValid())
-    {
-        $managerComment->save($commentToRecover);
-        $message ='<p class="messageValidation">Le commentaire a été récupéré!<p/>';
-    }
-    else
-    {
-        $errors = $commentToRecover->errors();
-    }
+    $managerComment->comment_unsignal($commentToRecoverId);
+    $managerComment->comment_untrash($commentToRecoverId);
+    $message = '<p class="messageValidation">Le commentaire a été republié !<p/>';
+}
+elseif (isset($_POST['comment_signal']) && $_POST['comment_signal'] == 'oui')
+{
+    $message = '<p class="messageAvertissement">Le commentaire est toujours signalé !<p/>';
 }
 
 ?>
@@ -38,9 +33,9 @@ if (isset($_POST['trash']))
             {
         ?>
         <p>Veuillez confirmer la récupération du commentaire : 
-        <input type="radio" name="trash" id="trash" value="non" checked/>
+        <input type="radio" name="comment_signal" id="comment_signal" value="non" checked/>
         <label for="non">oui</label>
-        <input type="radio" name="trash" id="trash" value="oui"/>
+        <input type="radio" name="comment_signal" id="comment_signal" value="oui"/>
         <label for="oui">non</label>
         </p>
         

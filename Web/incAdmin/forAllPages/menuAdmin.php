@@ -9,13 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="admin">Accueil Admin</a>
+              <a class="nav-link js-scroll-trigger" href="admin">Accueil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="rediger">Rédiger</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="modifier">Modifier</a>
+              <a class="nav-link js-scroll-trigger" href="modifierChapitres">Chapitres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="modifierCommentaires">Commentaires</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="corbeille-0">Corbeille</a>

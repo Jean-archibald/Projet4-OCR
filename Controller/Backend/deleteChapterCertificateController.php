@@ -14,11 +14,15 @@ $chapterToDeleteTitle =  $chapterToDelete->title();
 
 $title = 'Êtes vous sûr de vouloir supprimer le chapitre ' . $chapterToDeleteTitle;
 
-if (isset($_POST['trash']))
+if (isset($_POST['delete']) && $_POST['delete'] == 'oui')
 {
     $manager->delete($chapterToDeleteId);
     $managerComment->deleteFromChapter($chapterToDeleteId);
     $message = '<p class="messageAvertissement">Le chapitre, ainsi que ses commentaires, ont bien été supprimés!<p/>';
+}
+elseif(isset($_POST['delete']) && $_POST['delete'] == 'non')
+{
+    $message = '<p class="messageAvertissement">Le chapitre, ainsi que ses commentaires, sont toujours dans la corbeille!<p/>';
 }
 
 ?>
@@ -34,9 +38,9 @@ if (isset($_POST['trash']))
             {
         ?>
         <p>Veuillez confirmer la suppression de  <?= $chapterToDeleteTitle ?> ? : 
-        <input type="radio" name="trash" id="trash" value="oui"/>
+        <input type="radio" name="delete" id="delete" value="oui"/>
         <label for="oui">oui</label>
-        <input type="radio" name="trash" id="trash" value="non" checked/>
+        <input type="radio" name="delete" id="delete" value="non" checked/>
         <label for="non">non</label>
         </p>
         
