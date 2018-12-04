@@ -113,6 +113,13 @@ elseif(preg_match('#chapitre-supprimer-([0-9]+)#', $url , $params))
     require __DIR__.'/Controller/Backend/testConnectController.php';
 }
 
+elseif(preg_match('#republier-([0-9]+)#', $url , $params))
+{
+    $id = $params[1];
+    $direction = 'recoverChapterCertificate';
+    require __DIR__.'/Controller/Backend/testConnectController.php';
+}
+
 elseif(preg_match('#commentaire-supprimer-([0-9]+)#', $url , $params))
 {
     $id = $params[1];

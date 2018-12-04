@@ -64,17 +64,14 @@ echo '<p><small><em>Modifié le ', $chapter->dateModified()->format('d/m/Y à H\
         {
             echo '<p>Il n\'existe aucun commentaire pour le moment.</p>';
         }
-        foreach ($managerComment->getListOf($chapterId) as $comment)
+        foreach ($managerComment->getCommentsOfUniqueChapter($chapterId) as $comment)
         {
-            if ($comment->trash() == 'non')
-            {
             ?>
                 <p><strong>Auteur : <?= htmlspecialchars($comment->author()) ?></strong><br/>
                 Date : le <?= $comment->dateCreated()->format('d/m/Y à H\hi') ?><br/>
                 Contenu : <?= nl2br(htmlspecialchars($comment->content())) ?><br/>
                 <?php echo '<a href="signal-',$comment->id(),'">Signaler le commentaire de ' .$comment->author() .' ?</a>'?></p>
             <?php
-            }
         }
             ?>
     <div>

@@ -20,15 +20,15 @@ class CommentsManagerPDO extends CommentsManager
     $comment->setId($this->dao->lastInsertId());
   }
 
-  public function getListOf($chapterId)
+  public function getCommentsOfUniqueChapter($chapterId)
   {
     if (!ctype_digit($chapterId))
     {
       throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
     }
-    $q = $this->dao->prepare('SELECT id, chapterId, author, content, trash, dateCreated 
+    $q = $this->dao->prepare('SELECT id, chapterId, author, content, trash, comment_signal, dateCreated 
     FROM comments 
-    WHERE chapterId = :chapterId');
+    WHERE trash = \'non\' AND comment_signal = \'non\' AND chapterId = :chapterId');
     $q->bindValue(':chapterId', $chapterId, \PDO::PARAM_INT);
     $q->execute();
     $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');

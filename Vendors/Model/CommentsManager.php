@@ -25,7 +25,7 @@ abstract class CommentsManager extends Manager
    * @param $comments Les commentaires cibles
    * @return void
    */
-  abstract public function getListOf($chapterId);
+  abstract public function getCommentsOfUniqueChapter($chapterId);
 
   /**
    * Méthode permettant de cibler les commentaires qui sont dans la poubelle.

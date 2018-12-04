@@ -212,4 +212,20 @@ class ChapterManagerPDO extends ChapterManager
 
     $request->execute();
   }
+
+
+         /**
+     * @see CommentManager::comment_signal()
+     */
+    public function chapter_untrash($id)
+    {
+      $q = $this->dao->prepare('UPDATE chapters SET trash = :trash  WHERE id = :id');
+
+      $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+
+      $q->bindValue(':trash', 'non');
+
+      $q->execute();
+
+    }
 }
