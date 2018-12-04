@@ -7,8 +7,10 @@ class User extends Entity
 {
     protected   $id,
                 $nickname,
-                $password;
-               
+                $password,
+                $connected;
+
+         
     public function setNickname($nickname)
     {
             $this->nickname = $nickname;
@@ -17,6 +19,11 @@ class User extends Entity
     public function setPassword($password)
     {  
           $this->password = $password;
+    }
+
+    public function setConnected($connected)
+    {  
+          $this->connected = $connected;
     }
 
     // GETTERS //
@@ -28,6 +35,11 @@ class User extends Entity
     public function password()
     {
         return $this->password;
+    }
+
+    public function connected()
+    {
+        return $this->connected;
     }
  
 }

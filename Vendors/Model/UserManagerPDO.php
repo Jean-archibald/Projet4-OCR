@@ -36,4 +36,51 @@ class UserManagerPDO extends UserManager
         return $user;
     }
 
+
+
+         /**
+     * @see UserManager::connect()
+     */
+    public function connect($nickname)
+    {
+      $q = $this->dao->prepare('UPDATE user SET connected = :connected  WHERE nickname = :nickname');
+
+      $q->bindValue(':nickname', $nickname);
+
+      $q->bindValue(':connected', 'oui');
+
+      $q->execute();
+
+    }
+
+          /**
+     * @see UserManager::deconnect()
+     */
+    public function deconnect($nickname)
+    {
+      $q = $this->dao->prepare('UPDATE user SET connected = :connected  WHERE nickname = :nickname');
+
+      $q->bindValue(':nickname', $nickname);
+
+      $q->bindValue(':connected', 'non');
+
+      $q->execute();
+
+    }
+
+    
+     /**
+     * @see UserManager:userExist()
+     */
+    public function isConnect($connected)
+    {
+        $request = $this->dao->prepare('SELECT * FROM user WHERE connected = \'oui\'');
+        $request->execute(array($connected));
+        $isConnect = $request->rowCount();
+
+        return $isConnect;
+    }
+
+
+
 }

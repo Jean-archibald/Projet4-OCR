@@ -17,6 +17,7 @@ if(isset($_POST['nickname']))
         if($userExist == 1)
         {
             $userInfos = $userManager->getUserByNickname($nickname);
+            $userManager->connect($nickname);
             $_SESSION['nickname'] = $userInfos['nickname'];
             $_SESSION['password'] = $userInfos['password'];
             header('Location: admin');

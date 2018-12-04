@@ -13,7 +13,7 @@
     
     <!-- Header connexion -->
     <?php
-    include('Web/incPublic/connexionPage/HeaderConnexionAdmin.php');
+    include('Web/incPublic/connexionPage/headerConnexionAdmin.php');
     ?>
 
     <!-- Header connexion -->

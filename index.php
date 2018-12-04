@@ -137,7 +137,7 @@ elseif(preg_match('#recuperer-commentaire-([0-9]+)#', $url , $params))
 
 elseif(preg_match('#sessiondestroy#', $url , $params))
 {
-
+    $nickname = 'jean';
     require __DIR__.'/Controller/Backend/deconnexionController.php';
 }
 

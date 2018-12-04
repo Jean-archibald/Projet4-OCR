@@ -1,3 +1,13 @@
+<?php
+
+$dao = \MyFram\PDOFactory::getMySqlConnexion();
+$userManager = new \Model\UserManagerPDO($dao);
+
+$isConnect = $userManager->isConnect('oui');
+var_dump($isConnect);
+
+
+?>
 <!-- Navigation -->
 <section>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -21,9 +31,26 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="contact">Contact</a>
             </li>
+
+            <?php
+            if($isConnect ==  1)
+            {
+            ?>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="connexion">Connexion</a>
+              <a class="nav-link js-scroll-trigger" href="admin">Administration</a>
             </li>
+            <?php
+            }
+            else
+            {
+            ?>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="connexion">Connexion</a
+            </li>
+            <?php
+            }
+            ?>
+
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#recherche"><i class="fas fa-search"></i></a>
             </li>
