@@ -4,7 +4,7 @@ $dao = \MyFram\PDOFactory::getMySqlConnexion();
 $userManager = new \Model\UserManagerPDO($dao);
 
 $isConnect = $userManager->isConnect('oui');
-var_dump($isConnect);
+
 
 
 ?>
