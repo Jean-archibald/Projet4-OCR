@@ -20,7 +20,7 @@ class UserManagerPDO extends UserManager
     }
 
      /**
-    * @see UserManager::confirm()
+    * @see UserManager::getUserByNickName()
     */
     public function getUserByNickName($nickname)
     {
@@ -70,7 +70,7 @@ class UserManagerPDO extends UserManager
 
     
      /**
-     * @see UserManager:userExist()
+     * @see UserManager:isConnect()
      */
     public function isConnect($connected)
     {

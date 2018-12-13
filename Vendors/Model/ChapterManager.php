@@ -89,4 +89,12 @@ abstract class ChapterManager extends Manager
     abstract protected function modify(Chapter $chapter);
 
 
+    /**
+     * Method to put a chapter out of the trash
+     * @param $id int Identification of the chapter to get
+     * @return Chapter the chapter asked
+     */
+    abstract public function chapter_untrash($id);
+
+
 }

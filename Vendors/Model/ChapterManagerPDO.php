@@ -215,7 +215,7 @@ class ChapterManagerPDO extends ChapterManager
 
 
          /**
-     * @see CommentManager::comment_signal()
+     * @see ChapterManager::chapter_untrash()
      */
     public function chapter_untrash($id)
     {
