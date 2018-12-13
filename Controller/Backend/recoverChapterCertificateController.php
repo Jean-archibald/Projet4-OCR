@@ -12,11 +12,11 @@ $title = 'Êtes vous sûr de vouloir récuperer le chapitre ?';
 if (isset($_POST['chapterUntrash']) && $_POST['chapterUntrash'] == 'non')
 {
     $manager->chapter_untrash($chapterToRecoverId);
-    $message = '<p class="messageValidation">Le commentaire a été republié !<p/>';
+    $message = '<p class="messageValidation">Le chapitre est sorti de la corbeille, modifié le pour le republier !<p/>';
 }
 elseif (isset($_POST['chapterUntrash']) && $_POST['chapterUntrash'] == 'oui')
 {
-    $message = '<p class="messageAvertissement">Le commentaire est toujours signalé !<p/>';
+    $message = '<p class="messageAvertissement">Le chapitre est toujours dans la corbeille !<p/>';
 }
 
 ?>
