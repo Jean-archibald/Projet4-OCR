@@ -6,9 +6,10 @@ $userManager = new \Model\UserManagerPDO($dao);
 
 ob_start();
 
+
 if(isset($_POST['nickname']))
 {  
-    $password = htmlspecialchars($_POST['password']);
+    $password = sha1($_POST['password']);
     $nickname = htmlspecialchars($_POST['nickname']);
     $userExist = $userManager->userExist($nickname,$password);
 
